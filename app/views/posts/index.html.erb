@@ -1,0 +1,23 @@
+<fieldset>
+	<legend align = 'center'><h1 class="container mt-3 text-white-50 bg-primary">Hello User</h1></legend> 
+	<% if user_signed_in? %>
+		<%#= button_to "Create New Post", new_post_path, method: :get %><br><br>	
+		<%= render 'form', post: @post %>
+	
+	<table class="table table-success">
+		<thead class="table table-primary">
+			<tr>
+				<th>Post Title</th>
+				<th>Post Description</th>
+				<th></th><th></th>
+				<th></th><th></th><th></th>
+			</tr>
+		</thead>
+		<tbody class="table-success", id = 'post_list'>			
+			<%= render partial: 'demo', posts: @posts %>
+		</tbody>			
+		</table>	
+		<%end%>
+	</fieldset>
+
+

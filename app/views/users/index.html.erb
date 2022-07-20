@@ -1,0 +1,28 @@
+<fieldset>
+	<p id="notice"><%= notice %></p> 
+
+	<h1 class="container p-5 bg-success text-white"><legend align = 'center'>Home Page</legend></h1>
+	<% if user_signed_in?  %>
+	<h5 align="center"><%= button_to "All Post", posts_path, method: :get %></h5>
+	<table class="table table-light">
+		<thead>
+			<tr>
+				<th>User Name</th>
+				<th>User Address</th>
+				<th>Image</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @users.each do |user| %>
+			<tr>
+				<td><%= user.name %></td>
+				<td><%= user.address %></td>
+				<% if user.image.attached? %>
+				<td><%= image_tag user.image %></td>
+				<% end %>				
+			</tr>
+			<% end %>
+		</tbody>
+	</table>	
+	<% end %>
+</fieldset>

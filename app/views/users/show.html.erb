@@ -1,0 +1,20 @@
+<fieldset>
+	<legend align='center'><h4>User Details</h4></legend>
+	<legend align='center'><%= link_to "Home Page", root_path %></legend>
+		<p><%= @user.email %></p>
+		<p><%= @user.name %></p>
+		<p><%= @user.address %></p>
+		
+		
+	<legend><h3>Post Details</h3></legend>
+	<table>
+  		<tr>
+    		<th>Post Name </th>              
+    		<th>Comment </th>                     
+    	</tr>
+		<tr>
+   			<td><%=@post.name%></td>         
+		   	<td><%=@post.comment %></td>
+		</tr>
+	</table>
+</fieldset>

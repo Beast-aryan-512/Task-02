@@ -1,0 +1,16 @@
+<fieldset>
+	<%= form_with(model: [ @post, @post.comments.build ]) do |form| %>
+	<div class="container p-5 m-5 bg-primary text-white">
+		<%= form.label :body %><br>
+		<%= form.text_field :body, placeholder: "Enter comment" %>
+	</div>
+	<br>
+
+	<div align = "center">
+		
+		<%= form.submit "Submit"%>
+	</div>
+	<br>
+	<p align="center"><%= link_to 'Back', posts_path %></p>
+	<%end%>
+</fieldset>

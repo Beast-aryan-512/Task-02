@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p class="text-primary">
+  <strong> Post Name:</strong>
+  <%= @post.name %>
+</p>
+
+<p class="text-danger">
+  <strong>User Comment:</strong>
+  <%= @post.comment %>
+</p>
+
+<p>
+  <%= render "comments/form" %>
+</p>
+
+<h4 align="center">All Comments</h4>
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th>All User Comment</th>
+    </tr>
+  </thead>
+  <tbody >
+    <% @comments.each do |comment|%>
+    <tr>
+      <td><%= comment.body %></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+
+
+
+<%= link_to 'Edit Post', edit_post_path(@post) %> |
+

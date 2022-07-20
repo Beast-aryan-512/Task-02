@@ -1,0 +1,26 @@
+<fieldset>
+	<%= form_with(model: @post, local: false)  do |form| %>		
+	<div class="container mt-3 bg-success text-white">
+	<div>
+		<%= form.label :name %><br>
+		<%= form.text_field :name, placeholder: "Post Name" %>
+	</div>
+	<br>
+
+	<div>
+		<%= form.label :comment %><br>
+		<%= form.text_area :comment, placeholder: "Enter Comment" %>
+	</div>
+	<br>
+	</div>
+	<div>
+		<%= form.hidden_field :user_id, value: current_user.id %>
+	</div>
+	<br>
+	<div align = "center">
+		<%= form.submit "Submit", onclick: "submitMyForm(this)"%>
+	</div>
+	<br>
+	
+	<%end%>
+</fieldset>

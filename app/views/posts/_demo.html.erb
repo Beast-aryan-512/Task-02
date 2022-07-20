@@ -1,0 +1,27 @@
+<% @posts.each do |post| %>
+<tr>
+	<td><%= post.name %></td>
+	<td><%= post.comment %></td>
+	<td><%= button_to "Show Post", post, method: :get %></td>
+	<% if user_signed_in? %>
+	<% if current_user.id == post.user_id %>
+	<td class="btn-info"><%= link_to 'Update', edit_post_path(post) %></td>
+	<td><%= button_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></td>
+	<%else%>
+	<td>-</td>
+	<td>-</td>
+	<%end%>	
+	<%end%>
+	<% if user_signed_in? %>	
+	<td>	
+		<% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
+		<% if pre_like %>
+		<%= button_to 'Unlike', post_like_path(post, pre_like), method: :delete, remote: true %>
+		<% else %>
+		<%= button_to 'Like', post_likes_path(post), method: :post, remote: true %>
+		<% end %></td>
+		<td><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'like' : 'likes'%></td>
+		<%end%>
+	</tr>
+	<%end%>
+
