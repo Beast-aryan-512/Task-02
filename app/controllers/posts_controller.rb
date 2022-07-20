@@ -9,21 +9,21 @@ class PostsController < ApplicationController
     @like = Like.all
   end
 
-  def create
-    @post = Post.new(post_params)
-    @post.save
-    @posts = Post.all
-  end
-
   # def create
   #   @post = Post.new(post_params)
-  #   # @posts = Post.all
-  #   if @post.save
-  #     redirect_to posts_path
-  #   else
-  #     render 'new'
-  #   end
+  #   @post.save
+  #   @posts = Post.all
   # end
+
+  def create
+    @post = Post.new(post_params)
+    # @posts = Post.all
+    if @post.save
+      redirect_to posts_path
+    else
+      render 'new'
+    end
+  end
     
   
   def show
